@@ -8,8 +8,6 @@ Chatty is a real-time chat application developed using Flutter and Firebase. It 
 - **User Authentication:** Secure login and registration using Firebase Authentication.
 - **Profile Management:** Users can create and manage their profiles.
 - **Group Chats:** Create and participate in group conversations.
-- **Push Notifications:** Receive notifications for new messages.
-- **Media Sharing:** Share images and files with other users.
 
 ## Screenshots
 
@@ -76,7 +74,7 @@ Contributions are welcome! Please follow these steps to contribute:
 3. **Make your changes and commit them:**
 
     ```bash
-    git commit -m 'Add some feature'
+    git commit -m '[FEAT] Add some feature'
     ```
 
 4. **Push to the branch:**
@@ -89,7 +87,7 @@ Contributions are welcome! Please follow these steps to contribute:
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL-3 License. 
 
 ## Contact
 
