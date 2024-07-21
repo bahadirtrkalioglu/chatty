@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_firestore/screens/about_page.dart';
 import 'package:learn_firestore/services/auth_services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,8 +15,18 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text(userName),
-            accountEmail: Text(email),
+            accountName: Text(
+              userName,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            accountEmail: Text(
+              email,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.grey.shade200,
               child: ClipOval(
@@ -44,7 +55,13 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.info_outline),
             title: Text("About"),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return AboutPage();
+                },
+              ));
+            },
           ),
           ListTile(
             leading: Icon(Icons.logout_rounded),

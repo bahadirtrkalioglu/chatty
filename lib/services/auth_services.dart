@@ -41,8 +41,9 @@ class AuthServices {
 
   Future login(String email, String password, BuildContext context) async {
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
+      UserCredential userCredential = await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .catchError((e) => debugPrint("ERROR: $e"));
       User? user = userCredential.user;
       if (user != null) {
         final lastUser = await _db.collection('users').doc(user.uid).get();

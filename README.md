@@ -1,16 +1,92 @@
-# learn_firestore
+# Chatty
 
-A new Flutter project.
+Chatty is a real-time chat application developed using Flutter and Firebase. It allows users to communicate with each other instantly, providing a seamless and user-friendly chat experience.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Real-time Messaging:** Send and receive messages instantly.
+- **User Authentication:** Secure login and registration using Firebase Authentication.
+- **Profile Management:** Users can create and manage their profiles.
+- **Group Chats:** Create and participate in group conversations.
+- **Push Notifications:** Receive notifications for new messages.
+- **Media Sharing:** Share images and files with other users.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Screenshot 1](screenshots/screenshot1.png)
+![Screenshot 2](screenshots/screenshot2.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/bahadirtrkalioglu/chatty.git
+    cd chatty
+    ```
+
+2. **Install dependencies:**
+
+    ```bash
+    flutter pub get
+    ```
+
+3. **Set up Firebase:**
+   - Go to the [Firebase Console](https://console.firebase.google.com/).
+   - Create a new project or use an existing one.
+   - Add an Android app and an iOS app to your Firebase project.
+   - Download the `google-services.json` file for Android and `GoogleService-Info.plist` file for iOS.
+   - Place these files in the respective directories in your Flutter project.
+
+4. **Run the app:**
+
+    ```bash
+    flutter run
+    ```
+
+## Usage
+
+1. **Sign Up / Log In:**
+   - Open the app and sign up with a new account or log in with an existing one.
+   
+2. **Start Chatting:**
+   - Search for users and start a chat.
+   - Create groups and add members to start group conversations.
+   
+3. **Profile Management:**
+   - Go to the profile section to update your details and profile picture.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps to contribute:
+
+1. **Fork the repository.**
+2. **Create a new branch:**
+
+    ```bash
+    git checkout -b feature-name
+    ```
+
+3. **Make your changes and commit them:**
+
+    ```bash
+    git commit -m 'Add some feature'
+    ```
+
+4. **Push to the branch:**
+
+    ```bash
+    git push origin feature-name
+    ```
+
+5. **Create a pull request.**
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+If you have any questions or suggestions, feel free to reach out to me at bahadirtrk@proton.me.
