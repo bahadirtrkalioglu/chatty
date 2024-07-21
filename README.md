@@ -13,8 +13,12 @@ Chatty is a real-time chat application developed using Flutter and Firebase. It 
 
 ## Screenshots
 
-![Screenshot 1](screenshots/screenshot1.png)
-![Screenshot 2](screenshots/screenshot2.png)
+<table>
+  <tr>
+    <td><img src="assets/screenshots/photo1.png" alt="Screenshot 1" width="200"/></td>
+    <td><img src="assets/screenshots/photo2.png" alt="Screenshot 2" width="200"/></td>
+  </tr>
+</table>
 
 ## Installation
 
