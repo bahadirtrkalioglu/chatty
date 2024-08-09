@@ -4,7 +4,7 @@ import '../utils/utils.dart';
 
 class AuthTextField extends StatelessWidget {
   final String text;
-  TextEditingController controller;
+  final TextEditingController controller;
   final String? Function(String?)? validator;
   final bool isObscured;
   AuthTextField(

@@ -1,21 +1,18 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_firestore/screens/chat_screen.dart';
 import 'package:learn_firestore/screens/home_screen.dart';
 import 'package:learn_firestore/screens/login_screen.dart';
-import 'package:learn_firestore/screens/register_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -53,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       title: "Chatty",
       theme: ThemeData(primaryColor: Colors.orange.shade400),
       debugShowCheckedModeBanner: false,
-      home: hasDataIn == true ? HomeScreen() : LoginScreen(),
+      home: hasDataIn == true ? const HomeScreen() : const LoginScreen(),
     );
   }
 }

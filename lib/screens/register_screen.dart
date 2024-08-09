@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:learn_firestore/screens/chat_screen.dart';
 import 'package:learn_firestore/screens/login_screen.dart';
 import 'package:learn_firestore/services/auth_services.dart';
-import 'package:learn_firestore/utils/the_navigate.dart';
 import 'package:learn_firestore/widgets/auth_text_field.dart';
 import 'package:learn_firestore/widgets/submit_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../utils/utils.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -17,10 +14,10 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
-  TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
   Future<bool> checkSharedPreferencesData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -61,7 +58,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Image.asset("assets/images/register.png"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
                 AuthTextField(
@@ -76,7 +73,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 AuthTextField(
@@ -93,7 +90,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 AuthTextField(
@@ -107,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     return null;
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 AuthTextField(
@@ -123,7 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     return null;
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 SubmitButton(
@@ -137,13 +134,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       }
                     },
                     text: "Register"),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Already have an account? ",
                       style: TextStyle(
                           fontSize: 14,
@@ -151,7 +148,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           fontWeight: FontWeight.w500),
                     ),
                     GestureDetector(
-                      child: Text(
+                      child: const Text(
                         "Login",
                         style: TextStyle(
                             fontSize: 15,

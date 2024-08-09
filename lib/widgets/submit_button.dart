@@ -17,11 +17,11 @@ class SubmitButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
           color: Colors.blueGrey,
         ),
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Center(
           child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
           ),
         ),

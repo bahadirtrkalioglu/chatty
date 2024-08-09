@@ -1,12 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_firestore/screens/chat_screen.dart';
 import 'package:learn_firestore/screens/home_screen.dart';
 import 'package:learn_firestore/screens/login_screen.dart';
-import 'package:learn_firestore/screens/register_screen.dart';
 import 'package:learn_firestore/utils/the_navigate.dart';
-import 'package:learn_firestore/utils/utils.dart';
 import 'package:learn_firestore/widgets/custom_snack.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,7 +29,7 @@ class AuthServices {
         await prefs.setString('email', email);
         await prefs.setString('userName', name);
         await prefs.setString('uid', user.uid);
-        TheNavigate().pushReplaceIt(context, HomeScreen());
+        TheNavigate().pushReplaceIt(context, const HomeScreen());
       }
     } on FirebaseException catch (e) {
       return CustomSnack.showCustomSnackBar(context, e.message!);
@@ -51,7 +48,7 @@ class AuthServices {
         await prefs.setString('email', lastUser.get('email'));
         await prefs.setString('userName', lastUser.get('userName'));
         await prefs.setString('uid', lastUser.get('uid'));
-        TheNavigate().pushReplaceIt(context, HomeScreen());
+        TheNavigate().pushReplaceIt(context, const HomeScreen());
       }
     } on FirebaseException catch (e) {
       return CustomSnack.showCustomSnackBar(context, e.message!);
@@ -65,7 +62,7 @@ class AuthServices {
       await prefs.remove("email");
       await prefs.remove("userName");
       await prefs.remove("uid");
-      TheNavigate().pushReplaceIt(context, LoginScreen());
+      TheNavigate().pushReplaceIt(context, const LoginScreen());
     } catch (e) {
       //! ADD SNACKBAR
       print("Can't sign out: $e");
@@ -75,16 +72,16 @@ class AuthServices {
   Future createGroup(BuildContext context, String groupName) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      String? _uid = await prefs.getString("uid");
+      String? uid = prefs.getString("uid");
       DocumentReference userRef =
-          FirebaseFirestore.instance.collection('users').doc(_uid);
+          FirebaseFirestore.instance.collection('users').doc(uid);
       DocumentSnapshot userSnapshot = await userRef.get();
       CollectionReference groupCollection =
           FirebaseFirestore.instance.collection('groups');
       DocumentReference newGroupRef = await groupCollection.add({
         'groupName': groupName,
-        'members': [_uid],
-        'admin': _uid,
+        'members': [uid],
+        'admin': uid,
       });
       if (userSnapshot.exists) {
         List<String> existingGroups = List<String>.from(

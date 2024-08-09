@@ -9,11 +9,11 @@ class AboutPage extends StatelessWidget {
       appBar: AppBar(),
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
               color: Colors.teal.shade100,
               borderRadius: BorderRadius.circular(15)),
-          child: Wrap(
+          child: const Wrap(
             children: [
               Row(
                 mainAxisSize: MainAxisSize.min,

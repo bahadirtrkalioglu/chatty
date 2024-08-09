@@ -10,11 +10,11 @@ class AddGroup extends StatelessWidget {
     return FloatingActionButton(
       tooltip: "Add Group",
       onPressed: onPressed,
-      child: FaIcon(
+      backgroundColor: Colors.orange.shade400,
+      child: const FaIcon(
         FontAwesomeIcons.userGroup,
         size: 22,
       ),
-      backgroundColor: Colors.orange.shade400,
     );
   }
 }

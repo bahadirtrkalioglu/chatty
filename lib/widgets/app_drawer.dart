@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:learn_firestore/screens/about_page.dart';
 import 'package:learn_firestore/services/auth_services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AppDrawer extends StatelessWidget {
-  String userName;
-  String email;
-  AppDrawer({super.key, required this.email, required this.userName});
+  final String userName;
+  final String email;
+  const AppDrawer({super.key, required this.email, required this.userName});
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +16,13 @@ class AppDrawer extends StatelessWidget {
           UserAccountsDrawerHeader(
             accountName: Text(
               userName,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
             accountEmail: Text(
               email,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
@@ -38,7 +37,7 @@ class AppDrawer extends StatelessWidget {
                 ),
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.amber,
               image: DecorationImage(
                 image: NetworkImage(
@@ -48,24 +47,24 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.settings_outlined),
-            title: Text("Settings"),
+            leading: const Icon(Icons.settings_outlined),
+            title: const Text("Settings"),
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.info_outline),
-            title: Text("About"),
+            leading: const Icon(Icons.info_outline),
+            title: const Text("About"),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
-                  return AboutPage();
+                  return const AboutPage();
                 },
               ));
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout_rounded),
-            title: Text("Sign Out"),
+            leading: const Icon(Icons.logout_rounded),
+            title: const Text("Sign Out"),
             onTap: () async {
               await AuthServices().signOut(context);
             },

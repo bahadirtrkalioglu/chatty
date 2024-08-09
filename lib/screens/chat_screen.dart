@@ -3,12 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_firestore/screens/add_contacts_group_screen.dart';
 import 'package:learn_firestore/screens/group_info_screen.dart';
-import 'package:learn_firestore/screens/login_screen.dart';
-import 'package:learn_firestore/screens/register_screen.dart';
-import 'package:learn_firestore/services/auth_services.dart';
 import 'package:learn_firestore/utils/my_colors.dart';
 import 'package:learn_firestore/utils/the_navigate.dart';
-import 'package:learn_firestore/utils/utils.dart';
 
 class ChatScreen extends StatefulWidget {
   final String groupName;
@@ -49,16 +45,14 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _messageController = new TextEditingController();
-    double screenHeight = MediaQuery.of(context).size.height;
+    TextEditingController messageController = TextEditingController();
     double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           widget.groupName,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: MyColors.primary,
@@ -66,7 +60,7 @@ class _ChatScreenState extends State<ChatScreen> {
         elevation: 0,
         actions: [
           IconButton(
-            icon: FaIcon(
+            icon: const FaIcon(
               FontAwesomeIcons.userPlus,
               size: 20,
             ),
@@ -86,7 +80,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       groupId: widget.groupId,
                     ));
               },
-              icon: Icon(Icons.info_outline)),
+              icon: const Icon(Icons.info_outline)),
         ],
       ),
       body: Column(
@@ -121,12 +115,12 @@ class _ChatScreenState extends State<ChatScreen> {
                             borderRadius: BorderRadius.only(
                               bottomRight: isCurrentUser
                                   ? Radius.zero
-                                  : Radius.circular(18),
+                                  : const Radius.circular(18),
                               bottomLeft: isCurrentUser
-                                  ? Radius.circular(18)
+                                  ? const Radius.circular(18)
                                   : Radius.zero,
-                              topLeft: Radius.circular(18),
-                              topRight: Radius.circular(18),
+                              topLeft: const Radius.circular(18),
+                              topRight: const Radius.circular(18),
                             ),
                           ),
                           margin: EdgeInsets.only(
@@ -134,7 +128,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             left: isCurrentUser ? screenWidth * 30 / 100 : 10,
                             top: 12,
                           ),
-                          padding: EdgeInsets.all(7),
+                          padding: const EdgeInsets.all(7),
                           child: ListTile(
                             title: Padding(
                               padding: const EdgeInsets.only(bottom: 8.0),
@@ -147,54 +141,54 @@ class _ChatScreenState extends State<ChatScreen> {
                     },
                   );
                 } else if (snapshot.hasError) {
-                  return Text('Error retrieving messages');
+                  return const Text('Error retrieving messages');
                 } else {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
               },
             ),
           ),
           Container(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Expanded(
               child: TextField(
                 maxLines: null,
-                controller: _messageController,
+                controller: messageController,
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.grey[200],
                   hintText: 'Type a message',
-                  hintStyle: TextStyle(color: Colors.grey),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 12.0),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30.0),
                     borderSide: BorderSide.none,
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide(color: Colors.transparent),
+                    borderSide: const BorderSide(color: Colors.transparent),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide(color: Colors.blue),
+                    borderSide: const BorderSide(color: Colors.blue),
                   ),
                   prefixIcon: IconButton(
-                    icon: Icon(Icons.emoji_emotions),
+                    icon: const Icon(Icons.emoji_emotions),
                     color: Colors.grey,
                     onPressed: () {},
                   ),
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.send, color: Colors.blue),
+                    icon: const Icon(Icons.send, color: Colors.blue),
                     onPressed: () async {
                       addMessage(
                         widget.senderID,
                         widget.userName,
-                        _messageController.text,
+                        messageController.text,
                       );
                       setState(() {
-                        _messageController.clear();
+                        messageController.clear();
                       });
                     },
                   ),

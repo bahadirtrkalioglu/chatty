@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_firestore/services/auth_services.dart';
 import 'package:learn_firestore/utils/my_colors.dart';
 import 'package:learn_firestore/widgets/custom_snack.dart';
 
@@ -75,14 +74,12 @@ class _GroupInfoScreenState extends State<GroupInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
-    final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(
             widget.groupName,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           backgroundColor: MyColors.primary,
@@ -98,42 +95,42 @@ class _GroupInfoScreenState extends State<GroupInfoScreen> {
                       Center(
                         child: CircleAvatar(
                           radius: 40,
+                          backgroundColor: widget.groupColor,
                           child: Text(
                             widget.groupName.substring(0, 1).toUpperCase(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 30,
                                 fontWeight: FontWeight.w600),
                           ),
-                          backgroundColor: widget.groupColor,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      Divider(color: Colors.black54, thickness: 2),
-                      SizedBox(
+                      const Divider(color: Colors.black54, thickness: 2),
+                      const SizedBox(
                         height: 3,
                       ),
-                      Text(
+                      const Text(
                         "Admin",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w600),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 3,
                       ),
-                      Divider(color: Colors.black54, thickness: 2),
-                      SizedBox(
+                      const Divider(color: Colors.black54, thickness: 2),
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 5, vertical: 10),
                         decoration: BoxDecoration(
                             color: MyColors.accent.withOpacity(0.65),
                             borderRadius: BorderRadius.circular(14)),
-                        padding: EdgeInsets.all(7),
+                        padding: const EdgeInsets.all(7),
                         child: ListTile(
                           title: Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
@@ -142,36 +139,36 @@ class _GroupInfoScreenState extends State<GroupInfoScreen> {
                           subtitle: Text(namesAndEmail![0][1] ?? "Loading..."),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Divider(color: Colors.black54, thickness: 2),
-                      SizedBox(
+                      const Divider(color: Colors.black54, thickness: 2),
+                      const SizedBox(
                         height: 3,
                       ),
-                      Text(
+                      const Text(
                         "Group Members",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w600),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 3,
                       ),
-                      Divider(color: Colors.black54, thickness: 2),
-                      SizedBox(
+                      const Divider(color: Colors.black54, thickness: 2),
+                      const SizedBox(
                         height: 5,
                       ),
                       Column(
                           children: namesAndEmail != null
                               ? List.generate(namesAndEmail!.length, (index) {
                                   return Container(
-                                    margin: EdgeInsets.symmetric(
+                                    margin: const EdgeInsets.symmetric(
                                         horizontal: 5, vertical: 10),
                                     decoration: BoxDecoration(
                                         color: Colors.blueAccent.shade100,
                                         borderRadius:
                                             BorderRadius.circular(14)),
-                                    padding: EdgeInsets.all(7),
+                                    padding: const EdgeInsets.all(7),
                                     child: ListTile(
                                       title: Padding(
                                         padding:
@@ -183,7 +180,7 @@ class _GroupInfoScreenState extends State<GroupInfoScreen> {
                                   );
                                 }, growable: true)
                               : [
-                                  Center(
+                                  const Center(
                                     child: CircularProgressIndicator(),
                                   )
                                 ]),
@@ -191,7 +188,7 @@ class _GroupInfoScreenState extends State<GroupInfoScreen> {
                   ),
                 ),
               )
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(),
               ));
   }

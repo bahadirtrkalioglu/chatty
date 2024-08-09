@@ -38,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
       email = prefs.getString('email');
       userName = prefs.getString('userName');
     });
+    return null;
   }
 
   Future getGroupsForUser() async {
@@ -65,9 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _showCustomModalBottomSheet(BuildContext context) {
-    TextEditingController _groupName = new TextEditingController();
+    TextEditingController groupName = TextEditingController();
     showModalBottomSheet(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(15.0),
         ),
@@ -89,9 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
               AuthTextField(
                   //! Add validation!
                   text: "Group Name",
-                  controller: _groupName,
+                  controller: groupName,
                   isObscured: false),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Row(
@@ -101,23 +102,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: const Text(
                         "Cancel",
                         style: TextStyle(color: Colors.red),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   TextButton(
                       //! Add validation!
                       onPressed: () async {
                         await AuthServices()
-                            .createGroup(context, _groupName.text);
+                            .createGroup(context, groupName.text);
                         Navigator.pop(context);
-                        _groupName.clear();
+                        groupName.clear();
                         getGroupsForUser();
                       },
-                      child: Text(
+                      child: const Text(
                         "Create",
                         style: TextStyle(color: Colors.green),
                       )),
@@ -131,9 +132,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _showAddContactsSheet(BuildContext context) {
-    TextEditingController _emailController = new TextEditingController();
+    TextEditingController emailController = TextEditingController();
     showModalBottomSheet(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(15.0),
         ),
@@ -155,9 +156,9 @@ class _HomeScreenState extends State<HomeScreen> {
               AuthTextField(
                   //! Add validation!
                   text: "User's Email Address",
-                  controller: _emailController,
+                  controller: emailController,
                   isObscured: false),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Row(
@@ -167,22 +168,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: const Text(
                         "Cancel",
                         style: TextStyle(color: Colors.red),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   TextButton(
                       //! Add validation!
                       onPressed: () async {
                         await AuthServices()
-                            .addContacts(context, _emailController.text);
-                        _emailController.clear();
+                            .addContacts(context, emailController.text);
+                        emailController.clear();
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: const Text(
                         "Create",
                         style: TextStyle(color: Colors.green),
                       )),
@@ -206,13 +207,13 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         actions: [
           IconButton(
-              icon: FaIcon(
+              icon: const FaIcon(
                 FontAwesomeIcons.userPlus,
                 size: 21,
               ),
               onPressed: () => _showAddContactsSheet(context))
         ],
-        title: Text(
+        title: const Text(
           'Chatty',
           style: TextStyle(
               fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
@@ -233,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset("assets/images/empty.png"),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Text(
@@ -264,12 +265,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               color: MyColors.background,
                               border: Border(
                                   bottom: BorderSide(
                                       color: MyColors.divider, width: 2))),
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             top: 13,
                             bottom: 13,
                             right: 10,
@@ -278,20 +279,20 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: ListTile(
                             leading: CircleAvatar(
                               radius: 26,
+                              backgroundColor: MyColors.colorList[index],
                               child: Text(
                                 (groupNames![index] as String)
                                     .substring(0, 1)
                                     .toUpperCase(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 25,
                                     fontWeight: FontWeight.w600),
                               ),
-                              backgroundColor: MyColors.colorList[index],
                             ),
                             title: Text(
                               groupNames![index] as String,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: MyColors.textPrimary,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 18),
@@ -302,7 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                 )
-              : Center(
+              : const Center(
                   child: CircularProgressIndicator(color: Colors.deepPurple),
                 ),
     );

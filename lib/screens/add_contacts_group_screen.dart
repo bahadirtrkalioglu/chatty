@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learn_firestore/services/auth_services.dart';
 import 'package:learn_firestore/utils/my_colors.dart';
-import 'package:learn_firestore/utils/the_navigate.dart';
 import 'package:learn_firestore/widgets/custom_snack.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -78,14 +77,14 @@ class _AddContactsGroupScreenState extends State<AddContactsGroupScreen> {
                 .addGroupMembers(context, willAddMemberIds, widget.groupId);
             Navigator.pop(context);
           },
-          child: FaIcon(
+          child: const FaIcon(
             FontAwesomeIcons.check,
             size: 22,
           ),
         ),
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             "Contacts",
             style: TextStyle(
                 fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
@@ -118,7 +117,7 @@ class _AddContactsGroupScreenState extends State<AddContactsGroupScreen> {
                   },
                 ),
               )
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(),
               ));
   }

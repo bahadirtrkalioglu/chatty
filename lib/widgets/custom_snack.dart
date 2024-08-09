@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class CustomSnack {
   static final CustomSnack _instance = CustomSnack._internal();
   final List<SnackBar> _queue = [];
-  bool _isShowing = false;
 
   factory CustomSnack() {
     return _instance;
@@ -18,10 +17,10 @@ class CustomSnack {
     final snackBar = SnackBar(
       content: Text(
         message,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
       backgroundColor: Colors.red,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -32,10 +31,8 @@ class CustomSnack {
   }
 
   void _snackBarClosed(BuildContext context) {
-    _isShowing = false;
     if (_queue.isNotEmpty) {
       final snackBar = _queue.removeAt(0);
-      _isShowing = true;
       ScaffoldMessenger.of(context)
           .showSnackBar(snackBar)
           .closed

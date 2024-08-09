@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learn_firestore/screens/chat_screen.dart';
 import 'package:learn_firestore/screens/register_screen.dart';
 import 'package:learn_firestore/services/auth_services.dart';
-import 'package:learn_firestore/utils/utils.dart';
 import 'package:learn_firestore/widgets/auth_text_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:learn_firestore/widgets/submit_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -31,8 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _emailController = new TextEditingController();
-    TextEditingController _passwordController = new TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -58,13 +55,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Image.asset("assets/images/login.png"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
                 AuthTextField(
                   isObscured: false,
                   text: "E-mail",
-                  controller: _emailController,
+                  controller: emailController,
                   validator: (value) {
                     if (value!.isEmpty ||
                         !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
@@ -75,13 +72,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 AuthTextField(
                   isObscured: true,
                   text: "Password",
-                  controller: _passwordController,
+                  controller: passwordController,
                   validator: (value) {
                     if (value!.isEmpty || (value.length < 8)) {
                       return 'Enter at least 8 digit password';
@@ -89,24 +86,24 @@ class _LoginScreenState extends State<LoginScreen> {
                     return null;
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 SubmitButton(
                     onTap: () async {
                       if (_formkey.currentState!.validate()) {
-                        await AuthServices().login(_emailController.text,
-                            _passwordController.text, context);
+                        await AuthServices().login(emailController.text,
+                            passwordController.text, context);
                       }
                     },
                     text: "Login"),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Don't have an account? ",
                       style: TextStyle(
                           fontSize: 14,
@@ -114,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontWeight: FontWeight.w500),
                     ),
                     GestureDetector(
-                      child: Text(
+                      child: const Text(
                         "Register",
                         style: TextStyle(
                             fontSize: 15,
