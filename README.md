@@ -91,4 +91,4 @@ This project is licensed under the GPL-3 License.
 
 ## Contact
 
-If you have any questions or suggestions, feel free to reach out to me at bahadirtrk@proton.me.
+If you have any questions or suggestions, feel free to reach out to me at bahadirtrk.social@tutanota.com.
